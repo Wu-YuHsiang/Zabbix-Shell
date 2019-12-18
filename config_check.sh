@@ -2,7 +2,8 @@
 ###從Proxy下載base檔
 rm -rf /tmp/$(hostname)/base
 mkdir -p /tmp/$(hostname)/base
-sshpass -p "1qaz@WSX" rsync -avW --delete-before -e 'ssh -o StrictHostKeyChecking=no -p 45092' root@104.155.239.122:/etc/salt/deploy/scripts/config_base/`hostname`/* /tmp/`hostname`/base
+curl -s http://104.155.239.122:8943/config_base/`hostname`.tar.gz -o "/tmp/`hostname`/`hostname`.tar.gz"
+tar -C /tmp/`hostname`/base/ -zvxf /tmp/`hostname`/`hostname`.tar.gz
 ###執行比對Config檔
 rm -rf /tmp/$(hostname)/local
 ###製作List檔案
