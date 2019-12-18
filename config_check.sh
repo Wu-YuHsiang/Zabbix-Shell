@@ -1,4 +1,6 @@
 #!/bin/bash
+###如果要更新BASE檔，請到Proxy執行
+###【例如:salt 049*app* cmd.script "salt://scripts/config_base/config_base.sh"】建議不要大量Host執行，會容易失敗
 ###從Proxy下載base檔
 rm -rf /tmp/$(hostname)/base
 mkdir -p /tmp/$(hostname)/base
